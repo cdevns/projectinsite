@@ -15,22 +15,29 @@ export default {
   mounted: function() {
     d3.select("#bar-hover")
       .append("h2")
-      .text("BAR GRAPH WITH HOVER EFFECT");
+      .text("BAR GRAPH WITH HOVER AND LABELS");
 
     const svg = d3
       .select(this.$el)
       .append("svg")
       .attr("width", this.width)
-      .attr("height", this.height);
+      .attr("height", this.height)
+      .style("border", "1px solid black");
+
+    var xScale = d3
+      .scaleBand()
+      .domain(this.dataset)
+      .range([0, this.width])
+      .padding(0.3);
 
     svg
       .selectAll("rect")
       .data(this.dataset)
       .enter()
       .append("rect")
-      .attr("x", (d, i) => i * 30)
+      .attr("x", d => xScale(d))
       .attr("y", d => this.height - 3 * d)
-      .attr("width", 25)
+      .attr("width", xScale.bandwidth())
       .attr("height", d => 3 * d)
       .attr("fill", "navy")
       .attr("class", "bar");
@@ -41,7 +48,7 @@ export default {
       .enter()
       .append("text")
       .text(d => d)
-      .attr("x", (d, i) => i * 30)
+      .attr("x", d => xScale(d))
       .attr("y", d => this.height - 3 * d - 3)
       .style("font-size", "25px")
       .style("fill", "red")

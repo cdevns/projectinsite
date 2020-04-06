@@ -1,0 +1,37 @@
+[
+  {
+    "name": "In search of lost time",
+    "author": "Marcel proust",
+    "sold_count:":12
+  },
+  {
+    "name": "Ulysses",
+    "author": "James joyce",
+    "sold_count:":31
+  },
+  {
+    "name": "Don quixote",
+    "author": "Miguel de Cervantes",
+    "sold_count:":17
+  },
+  {
+    "name": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "sold_count:":25
+  },
+  {
+    "name": "One Hundred Years of Solitude",
+    "author": "Gabriel Garcia Marquez",
+    "sold_count:":18
+  },
+  {
+    "name": "Moby Dick",
+    "author": "Herman Melville",
+    "sold_count:":29
+  },
+  {
+    "name": "War and Peace",
+    "author": "Leo Tolstoy",
+    "sold_count:":14
+  }
+]

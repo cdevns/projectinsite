@@ -2,6 +2,8 @@
   <div>
     <h2>CIRCLE PACK</h2>
     <svg :height="height" :width="width">
+      <!-- tranlating or moving chart -->
+      <!-- The <g> SVG element is a container used to group other SVG elements. -->
       <g transform="translate(50,50)">
         <circle
           v-for="c in output"
@@ -73,3 +75,6 @@ export default {
   }
 };
 </script>
+
+<style>
+</style>
