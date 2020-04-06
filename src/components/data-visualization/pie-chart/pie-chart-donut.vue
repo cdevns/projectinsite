@@ -10,8 +10,6 @@ import * as d3 from "d3";
 
 export default {
   mounted: function() {
-    // console.log(this.$el.getElementsByTagName("svg")); // HTMLCollection[svg]
-    // this.$el element at root which is svg
     var svg = d3.select(this.$el.getElementsByTagName("svg")[0]);
     var width = +svg.attr("width");
     var height = +svg.attr("height");
@@ -22,17 +20,13 @@ export default {
     var chartHeight = height - (margin.top + margin.bottom);
 
     this.chartLayer = svg
-      // The <g> SVG element is a container used to group other SVG elements.
       .append("g")
       .attr("transform", `translate(${margin.left}, ${margin.top})`);
-    // configuring arc properties
     this.arc = d3
       .arc()
       .outerRadius(chartHeight / 2)
       .innerRadius(chartHeight / 4)
-      // gaps between arcs
       .padAngle(0.03)
-      // arc edges get curved shape
       .cornerRadius(8);
 
     this.pieG = this.chartLayer
@@ -53,13 +47,10 @@ export default {
 
       var arcs = d3
         .pie()
-        // sort by default ascending order
         .sort(null)
-        // return values of an object with key/values passed
         .value(function(d) {
-          // { name: "Sarah", value: 2502 }
           return d.value;
-        })(argData); // passing 'argData' and return inside value() func
+        })(argData); 
 
       var block = this.pieG.selectAll(".arc").data(arcs);
 
@@ -68,7 +59,6 @@ export default {
       var newBlock = block
         .enter()
         .append("g")
-        // applying 'arc' class
         .classed("arc", true);
 
       newBlock

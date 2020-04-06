@@ -13,9 +13,6 @@ export default {
     };
   },
   mounted: function() {
-    // console.log(this.width);
-    // console.log(this.height);
-    // console.log("this1: ", this);
 
     d3.select("#bar-basic")
       .append("h2")
@@ -38,7 +35,6 @@ export default {
         return i * 30;
       })
       .attr("y", function(d) {
-        // console.log('this: ', this);
         return height - 3 * d;
       })
       .attr("width", 25)

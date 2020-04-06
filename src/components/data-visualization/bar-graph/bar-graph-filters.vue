@@ -42,22 +42,17 @@ export default {
   mounted: function() {
     var margin = { left: 100, top: 10, right: 10, bottom: 70 };
 
-    // visualization width and height
     var width = this.width - margin.left - margin.right;
     var height = this.height - margin.top - margin.bottom;
 
-    // svg dimensions
     const svg = d3
       .select("#bar-filter")
       .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
-      // old left value +  margin-left and old top value + margin-top
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    // X AXIS
-    // 1. define x scale
     var xscale = d3
       .scaleBand()
       .domain(
@@ -67,22 +62,18 @@ export default {
         })
       )
       .range([0, width])
-      // 'padding' applies to paddingInner and paddingOuter
       .padding(0.3);
 
-    // 2. define x axis position and tickformat
     var xAxisCall = d3.axisBottom(xscale).tickFormat(function(d, i) {
       return i;
     });
 
-    // 3. move and call x axis from top to bottom
     svg
       .append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxisCall);
 
-    // 4. display TITLE of x axis
     svg
       .append("text")
       .attr("class", "x-axis-label")
@@ -92,8 +83,6 @@ export default {
       .attr("text-anchor", "middle")
       .text("X Axis");
 
-    // Y AXIS
-    // 1. define y scale
     var yscale = d3
       .scaleLinear()
       .domain([
@@ -104,16 +93,13 @@ export default {
       ])
       .range([height, 0]);
 
-    // 2. define Y axis position
     var yAxisCall = d3.axisLeft(yscale).ticks(3);
 
-    // 3. call y axis
     svg
       .append("g")
       .attr("class", "y axis")
       .call(yAxisCall);
 
-    // 4. display title of y axis
     svg
       .append("text")
       .attr("class", "y-axis-label")
@@ -124,7 +110,6 @@ export default {
       .attr("transform", "rotate(-90)")
       .text("Y Axis");
 
-    // svg generate bars
     svg
       .selectAll("rect")
       .data(this.bookList)
