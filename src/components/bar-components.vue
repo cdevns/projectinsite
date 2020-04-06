@@ -1,12 +1,5 @@
 <template>
   <div>
-    <BarAxis />
-    <hr />
-
-    <!-- BAR BASIC -->
-    <BarBasic />
-    <hr />
-
     <!-- BAR GRAPH FILTERS -->
     <form>
       <div class="row">
@@ -20,31 +13,18 @@
       </div>
     </form>
     <BarFilter :barGraphData="filteredData" />
-    <hr />
 
-    <!-- BAR HOVER -->
-    <BarHover />
-    <hr />
-    <BarTooltip />
   </div>
 </template>
 
 <script>
 import * as d3 from "d3";
 
-import BarAxis from "./data-visualization/bar-graph/bar-graph-axis.vue";
-import BarBasic from "./data-visualization/bar-graph/bar-graph-basic.vue";
 import BarFilter from "./data-visualization/bar-graph/bar-graph-filters.vue";
-import BarHover from "./data-visualization/bar-graph/bar-graph-labels-hover.vue";
-import BarTooltip from "./data-visualization/bar-graph/bar-graph-tooltip.vue";
 
 export default {
   components: {
-    BarAxis,
-    BarBasic,
     BarFilter,
-    BarHover,
-    BarTooltip
   },
   data() {
     return {
@@ -54,12 +34,10 @@ export default {
   },
   methods: {
     onChange() {
-      console.log("onchange: ", event.target.value);
       this.fetchData();
     },
     async fetchData() {
       let data = await d3.json("./data/books.json");
-      console.log("books-data: ", data);
       this.filteredData = data;
     }
   }

@@ -1,7 +1,6 @@
 <template>
   <div>
     <h2>BAR GRAPH FILTER</h2>
-
     <svg id="bar-filter" :width="width" :height="height" />
   </div>
 </template>

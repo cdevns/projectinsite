@@ -6,8 +6,5 @@
     <router-link to="/bar" tag="li" active-class="active">
       <a>Bar graph</a>
     </router-link>
-    <router-link to="/pie" tag="li" active-class="active">
-      <a>Pie Chart</a>
-    </router-link>
   </ul>
 </template>
