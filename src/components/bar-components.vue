@@ -13,7 +13,6 @@
       </div>
     </form>
     <BarFilter :barGraphData="filteredData" />
-
   </div>
 </template>
 
@@ -24,7 +23,7 @@ import BarFilter from "./data-visualization/bar-graph/bar-graph-filters.vue";
 
 export default {
   components: {
-    BarFilter,
+    BarFilter
   },
   data() {
     return {
@@ -34,11 +33,16 @@ export default {
   },
   methods: {
     onChange() {
+      console.log(event.target.value);
+      // let selectedOption = event.target.value;
       this.fetchData();
     },
     async fetchData() {
-      let data = await d3.json("./data/books.json");
-      this.filteredData = data;
+      // if (selectedOption === "Books") {
+        this.filteredData = await d3.json("./data/books.json");
+      //   return;
+      // }
+      // this.filteredData = await d3.json("./data/journals.json");;
     }
   }
 };

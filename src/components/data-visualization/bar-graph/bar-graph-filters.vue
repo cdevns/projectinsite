@@ -94,6 +94,10 @@ export default {
           return xscale(d.sold_count);
         })
         .attr("y", function(d) {
+          console.log("y-value: ",d.name)
+          // var parsedobj = JSON.parse(JSON.stringify(d));
+          // console.log("d: ", parsedobj.sold_count);
+          // console.log(parsedobj);
           return yscale(d.sold_count);
         })
         .attr("width", xscale.bandwidth)
