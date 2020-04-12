@@ -6,13 +6,13 @@
         <div class="col-xs-12 form-group">
           <label for="selectOptions" class="col-xs-2">Select Filter</label>
           <select id="selectOptions" class="col-xs-3" @change="onChange">
-            <option value="select">select</option>
-            <option v-for="(option,index) in selectOptions" :key="index">{{option}}</option>
+            <option v-for="(option,index) in selectOptions" :key="index" :value="option">{{option}}</option>
           </select>
         </div>
       </div>
     </form>
     <BarFilter :barGraphData="filteredData" />
+    <hr />
   </div>
 </template>
 
@@ -33,17 +33,18 @@ export default {
   },
   methods: {
     onChange() {
-      console.log(event.target.value);
-      // let selectedOption = event.target.value;
       this.fetchData();
     },
     async fetchData() {
-      // if (selectedOption === "Books") {
-        this.filteredData = await d3.json("./data/books.json");
-      //   return;
-      // }
-      // this.filteredData = await d3.json("./data/journals.json");;
+      let selectedOption =
+        event.target.value === "Books" ? "Books" : "Journals";
+      let data = await d3.json(`./data/${selectedOption}.json`);
+      this.filteredData = data;
     }
+  },
+  async mounted() {
+    let data = await d3.json("./data/books.json");
+    this.filteredData = data;
   }
 };
 </script>

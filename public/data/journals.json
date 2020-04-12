@@ -1,26 +1,37 @@
 [
-  116,
-  104,
-  105,
-  115,
-  32,
-  105,
-  115,
-  32,
-  97,
-  32,
-  98,
-  105,
-  110,
-  97,
-  114,
-  121,
-  32,
-  118,
-  97,
-  108,
-  117,
-  101,
-  32,
-  7
+  {
+    "name": "Journal 1",
+    "author": "Marcel proust",
+    "sold_count": 50
+  },
+  {
+    "name": "Journal 2",
+    "author": "James joyce",
+    "sold_count": 48
+  },
+  {
+    "name": "Journal 3",
+    "author": "Miguel de Cervantes",
+    "sold_count": 82
+  },
+  {
+    "name": "Journal 4",
+    "author": "F. Scott Fitzgerald",
+    "sold_count": 63
+  },
+  {
+    "name": "Journal 5",
+    "author": "Gabriel Garcia Marquez",
+    "sold_count": 68
+  },
+  {
+    "name": "Journal 6",
+    "author": "Herman Melville",
+    "sold_count": 51
+  },
+  {
+    "name": "Journal 7",
+    "author": "Leo Tolstoy",
+    "sold_count": 74
+  }
 ]
